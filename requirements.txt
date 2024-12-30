@@ -7,3 +7,4 @@ notebook
 scikit-learn~=1.5.1
 pre-commit
 quartodoc==0.9.1
+datasets==3.2.0
