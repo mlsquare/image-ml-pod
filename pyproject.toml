@@ -48,3 +48,6 @@ attr = "image_ml_pod.__version__"
 [tool.setuptools.packages.find]
 where = [ "src",]
 namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "8ea226dd30bb4a15ab82035357bd18df"
