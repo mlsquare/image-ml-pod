@@ -13,3 +13,13 @@ repos:
         language: system
         pass_filenames: false
         types: [python]
+      - id: quartodoc-build
+        name: Quartodoc Build
+        entry: quartodoc build
+        language: system
+        pass_filenames: false
+      - id: quarto-render
+        name: Quarto Render
+        entry: quarto render
+        language: system
+        pass_filenames: false

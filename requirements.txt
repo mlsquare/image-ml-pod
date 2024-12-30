@@ -6,3 +6,4 @@ kedro[jupyter]~=0.19.9
 notebook
 scikit-learn~=1.5.1
 pre-commit
+quartodoc==0.9.1
