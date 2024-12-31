@@ -21,7 +21,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func=prepare_image,
                 inputs=["inference_sample", "params:img_size"],
-                outputs="resized_img",
+                outputs="preprocessed_image",
                 name="resize_image_node_inference",
                 tags=["inference"],
             ),
