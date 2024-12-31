@@ -14,3 +14,5 @@ torch==2.5.1
 pytorch-ood==0.2.0
 torchcp==0.1.3
 captum==0.7.0
+fastapi==0.115.4
+kedro-boot==0.2.3
