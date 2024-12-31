@@ -1,0 +1,44 @@
+---
+title: Data Preprocessing for Inferencing
+order: 4
+---
+
+# Data Preprocessing for Inferencing
+
+Inference is decomposed into three distinct steps, and this is the first: **data preprocessing for inferencing**. The `inf_data_preprocessing` pipeline includes nodes for:
+
+1. **Input Image Preprocessing**  
+2. **Out-of-Distribution (OOD) Detection**  
+
+You can extend this pipeline by adding nodes to perform additional operations on input images before they are passed to the model.
+
+---
+
+## OOD Detection
+
+For **Out-of-Distribution (OOD) Detection**, we use the `pytorch-ood` library. A separate pipeline, titled `ood_detection`, is provided to train and integrate custom OOD detectors.
+
+### Features of OOD Detection Pipeline
+
+- **Preconfigured Templates**  
+  We provide templates for the following OOD detectors:
+  - **MSP Detector**: Maximum Softmax Probability Detector  
+  - **RMD Detector**: Relative Mahalanobis Distance Detector  
+  - **Multi-Mahalanobis Detector**: An enhanced version of the Mahalanobis-based detector.
+
+- **Dataset Example**  
+  The pipeline is configured to use CIFAR-10 as the "out-of-distribution" dataset by default. However, you can adapt the pipeline to use any dataset of your choice.
+
+### Getting Started with OOD Detection
+
+1. Train your custom OOD detector by modifying the templates provided in the `ood_detection` pipeline.
+2. For further customization or advanced features, refer to the [PyTorch OOD Documentation](https://pytorch-ood.readthedocs.io/en/v0.2.0/info.html).
+
+---
+
+## Customization Tips
+
+- **Add Preprocessing Steps**: Extend the `inf_data_preprocessing` pipeline to include additional transformations or preprocessing steps suited to your use case.
+- **Experiment with OOD Detectors**: Customize the OOD pipeline to use different datasets or fine-tune the provided detectors to improve performance.
+
+

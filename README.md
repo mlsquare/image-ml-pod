@@ -1,101 +1,136 @@
-# image_ml_pod
+# Image ML Pod
 
-[![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
+**A modular framework to simplify your image dataset workflows.**
 
-## Overview
+Image ML Pod is a ready-to-use framework designed to make image-based machine learning pipelines easier, faster, and more scalable. From preprocessing to training, inference, and deployment, this pod provides you with tools and templates to focus on building your models instead of managing workflows.
 
-This is your new Kedro project with Kedro-Viz setup, which was generated using `kedro 0.19.9`.
+---
 
-Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
+## **Why Image ML Pod?**
 
-## Rules and guidelines
+- **Prebuilt Kedro Pipelines**: Modular workflows for preprocessing, training, inference, and postprocessing.
+- **Seamless Integration**: Built-in support for HuggingFace datasets, MLFlow, FastAPI, and Docker.
+- **Cutting-Edge Features**:
+  - Out-of-Distribution (OOD) detection.
+  - Conformal predictions for reliability.
+  - Explainability with Integrated Gradients.
+- **Scalable Deployment**: Easily bootstrap APIs or explore microservices architecture.
+- **Time-Saving**: Spend less time on setup and more on experimentation.
 
-In order to get the best out of the template:
+---
 
-* Don't remove any lines from the `.gitignore` file we provide
-* Make sure your results can be reproduced by following a [data engineering convention](https://docs.kedro.org/en/stable/faq/faq.html#what-is-data-engineering-convention)
-* Don't commit data to your repository
-* Don't commit any credentials or your local configuration to your repository. Keep all your credentials and local configuration in `conf/local/`
+## **Key Features**
 
-## How to install dependencies
+- **Modular Design**: Use only the pipelines you need, customize nodes, and add new ones effortlessly.
+- **Automatic OOD Detection**: Ensure robustness with templates for MSP, RMD, and MultiMahalanobis detectors.
+- **Experiment Tracking**: MLFlow integration lets you log hyperparameters, metrics, and models.
+- **FastAPI Integration**: Bootstrap APIs directly from inference pipelines.
+- **Docker Support**: Build and deploy your applications seamlessly with GPU compatibility.
+- **Conformal Predictions**: Generate reliable prediction sets with torchcp.
+- **Explainability**: Use Captum’s Integrated Gradients to interpret your model’s decisions.
 
-Declare any dependencies in `requirements.txt` for `pip` installation.
+---
 
-To install them, run:
+## **How It Works**
 
+### Framework Overview
+
+1. **Data Handling**: HuggingFace datasets integration for seamless loading and processing of image datasets.
+2. **Preprocessing**: Ready-to-use pipelines for image transforms, OOD detection, and data augmentation.
+3. **Training**: Kedro pipelines with placeholders for custom models and training logic.
+4. **Inference**: FastAPI server integration for real-time inference.
+5. **Postprocessing**: Enhance predictions with conformal methods and explainability tools.
+
+---
+
+## **Demos**
+
+1. **Prebuilt Pipelines**
+
+   - Load an image dataset with HuggingFace’s `ImageFolder`.
+   - Train a model and log results with MLFlow.
+   - Deploy the inference pipeline as a FastAPI server.
+
+2. **Example Commands**
+
+   ```bash
+   # Generate conformal predictions
+   kedro run --pipeline=inf_pred_postprocessing
+
+   # Launch the FastAPI server
+   uvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000
+   ```
+
+---
+
+## **Customization**
+
+### Adding Custom Nodes
+
+- Modify existing Kedro nodes or add new ones in the pipeline YAML files.
+- Use the provided templates for:
+  - **Data Preprocessing**: Add torchvision transforms or custom logic.
+  - **OOD Detection**: Train your own detectors.
+  - **Postprocessing**: Implement explainability or custom logging.
+
+### Extending Pipelines
+
+- Add or remove nodes by editing the `catalog.yml` and pipeline configuration files.
+- Example:
+  ```yaml
+  my_image_dataset:
+    type: image_ml_pod.datasets.HFImageFolderDataSet
+    data_dir: data/01_raw/images
+  ```
+
+---
+
+## **Deployment**
+
+### Running Locally
+
+Run the FastAPI server for inference:
+
+```bash
+uvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000
 ```
-pip install -r requirements.txt
+
+### Dockerized Deployment
+
+Build the Docker image:
+
+```bash
+docker build -t image-ml-pod .
 ```
 
-## How to run your Kedro pipeline
+Run the Docker container with GPU support:
 
-You can run your Kedro project with:
-
-```
-kedro run
+```bash
+docker run -p 8000:8000 --gpus all image-ml-pod
 ```
 
-## How to test your Kedro project
+---
 
-Have a look at the files `src/tests/test_run.py` and `src/tests/pipelines/data_science/test_pipeline.py` for instructions on how to write your tests. Run the tests as follows:
+## **Documentation**
 
-```
-pytest
-```
+To view the full documentation, visit the [docs](docs) folder.
 
-To configure the coverage threshold, look at the `.coveragerc` file.
+Or you can access it by running the following command:
 
-## Project dependencies
-
-To see and update the dependency requirements for your project use `requirements.txt`. Install the project requirements with `pip install -r requirements.txt`.
-
-[Further information about project dependencies](https://docs.kedro.org/en/stable/kedro_project_setup/dependencies.html#project-specific-dependencies)
-
-## How to work with Kedro and notebooks
-
-> Note: Using `kedro jupyter` or `kedro ipython` to run your notebook provides these variables in scope: `catalog`, `context`, `pipelines` and `session`.
->
-> Jupyter, JupyterLab, and IPython are already included in the project requirements by default, so once you have run `pip install -r requirements.txt` you will not need to take any extra steps before you use them.
-
-### Jupyter
-To use Jupyter notebooks in your Kedro project, you need to install Jupyter:
-
-```
-pip install jupyter
+```bash
+quarto preview
 ```
 
-After installing Jupyter, you can start a local notebook server:
+and navigating to the "Documentation" section.
 
-```
-kedro jupyter notebook
-```
+---
 
-### JupyterLab
-To use JupyterLab, you need to install it:
+## **License**
 
-```
-pip install jupyterlab
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-You can also start JupyterLab:
+---
 
-```
-kedro jupyter lab
-```
+## **Acknowledgments**
 
-### IPython
-And if you want to run an IPython session:
-
-```
-kedro ipython
-```
-
-### How to ignore notebook output cells in `git`
-To automatically strip out all output cell contents before committing to `git`, you can use tools like [`nbstripout`](https://github.com/kynan/nbstripout). For example, you can add a hook in `.git/config` with `nbstripout --install`. This will run `nbstripout` before anything is committed to `git`.
-
-> *Note:* Your output cells will be retained locally.
-
-[Further information about using notebooks for experiments within Kedro projects](https://docs.kedro.org/en/develop/notebooks_and_ipython/kedro_and_notebooks.html).
-## Package your Kedro project
-
-[Further information about building project documentation and packaging your project](https://docs.kedro.org/en/stable/tutorial/package_a_project.html).
+Built with love using Kedro, HuggingFace, MLFlow, FastAPI, and more. Special thanks to the open-source community for providing the tools that made this possible.

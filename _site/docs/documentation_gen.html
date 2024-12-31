@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Image ML Pod Documentation</title>
+<title>Automatic Documentation Generation – Image ML Pod Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -92,10 +126,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/documentaion.qmd"> 
-<span class="menu-text">Documentation</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
@@ -110,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API Reference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/documentation_gen.html">Automatic Documentation Generation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,25 +162,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rough.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rough</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../docs/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Image ML Pod</span></a>
+ <span class="menu-text">Image ML Pod Documentation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contents</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/getting_started.html" class="sidebar-item-text sidebar-link">
@@ -165,37 +195,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/model_training.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model Training</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/inf_data_preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Preprocessing for Inferencing</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/model_inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model Inference</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/inf_pred_postprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Postprocessing on Predictions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/backend_server.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bootstrapping an API using FastAPI and Kedro Boot</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/documentation_gen.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/documentation_gen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Automatic Documentation Generation</span></a>
   </div>
 </li>
@@ -211,27 +211,99 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
-  <ul class="collapse">
-  <li><a href="#image_ml_pod" id="toc-image_ml_pod" class="nav-link" data-scroll-target="#image_ml_pod">image_ml_pod</a></li>
-  </ul></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#steps-to-enable-automatic-documentation" id="toc-steps-to-enable-automatic-documentation" class="nav-link" data-scroll-target="#steps-to-enable-automatic-documentation">Steps to Enable Automatic Documentation</a></li>
+  <li><a href="#manually-generating-documentation" id="toc-manually-generating-documentation" class="nav-link" data-scroll-target="#manually-generating-documentation">Manually Generating Documentation</a></li>
+  <li><a href="#viewing-documentation" id="toc-viewing-documentation" class="nav-link" data-scroll-target="#viewing-documentation">Viewing Documentation</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources">Additional Resources</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/documentation_gen.html">Automatic Documentation Generation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Automatic Documentation Generation</h1>
+</div>
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="image_ml_pod" class="level2">
-<h2 class="anchored" data-anchor-id="image_ml_pod">image_ml_pod</h2>
-<p>image_ml_pod</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>This pod leverages <strong>quartodoc</strong> and <strong>quarto</strong> to generate documentation directly from the codebase. This ensures seamless integration of documentation with the code and keeps it consistently up-to-date.</p>
+<hr>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ol type="1">
+<li><p><strong>Install Quarto</strong><br>
+Ensure you have Quarto installed by following the instructions <a href="https://quarto.org/docs/get-started/">here</a>.</p></li>
+<li><p><strong>Configure Quartodoc</strong><br>
+Quartodoc extracts docstrings from Python code and generates markdown files for documentation.</p></li>
+</ol>
+<hr>
 </section>
+<section id="steps-to-enable-automatic-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="steps-to-enable-automatic-documentation">Steps to Enable Automatic Documentation</h2>
+<ol type="1">
+<li><strong>Expose Functions or Classes for Quartodoc</strong>
+<ul>
+<li><p>Add functions or classes with docstrings to the <code>__all__</code> list in the package’s <code>__init__.py</code> file.<br>
+</p></li>
+<li><p>For example, in the <a href="../src/image_ml_pod/__init__.py"><code>__init__.py</code></a> file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>__all__ <span class="op">=</span> [<span class="st">"function_name"</span>, <span class="st">"ClassName"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Include in Reference Documentation</strong>
+<ul>
+<li>Update the <code>_quarto.yml</code> file at the project root to include the new items in the <code>quartodoc</code> configuration.<br>
+</li>
+<li>Under the <code>sections</code> key, specify the items you want in the reference documentation.</li>
+</ul></li>
+<li><strong>Pre-commit Hook for Auto-generation</strong>
+<ul>
+<li>The <code>.pre_commit_config.yaml</code> file includes a hook that auto-generates documentation files before each commit. This ensures your documentation reflects the latest codebase.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="manually-generating-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="manually-generating-documentation">Manually Generating Documentation</h2>
+<p>To manually generate the documentation, run:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quartodoc</span> build</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The generated markdown files will be located in the <code>reference</code> folder at the project root.</p>
+<hr>
+</section>
+<section id="viewing-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-documentation">Viewing Documentation</h2>
+<ol type="1">
+<li><p><strong>View as Markdown</strong><br>
+Navigate to the <code>reference</code> folder and open the generated markdown files.</p></li>
+<li><p><strong>View as a Website</strong><br>
+Launch a local preview server by running:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens the documentation in a browser as a website.</p></li>
+</ol>
+<hr>
+</section>
+<section id="additional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="additional-resources">Additional Resources</h2>
+<p>For detailed guides on Quartodoc and Quarto, visit:</p>
+<ul>
+<li><a href="https://machow.github.io/quartodoc/get-started/overview.html">Quartodoc Documentation</a></li>
+<li><a href="https://quarto.org/docs/get-started/">Quarto Documentation</a></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

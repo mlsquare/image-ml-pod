@@ -1,0 +1,42 @@
+---
+title: Model Training
+order: 3
+---
+
+# Model Training
+
+The **Image ML Pod** framework provides a pipeline titled `model_training` with placeholder functions for training and evaluating models. This pipeline is designed to be modular and easily customizable for various use cases.
+
+---
+
+## Key Features
+
+1. **Training and Evaluation**  
+   The pipeline includes templates for implementing model training and evaluation logic. You can modify these functions to fit your specific requirements.
+
+2. **Model Tracking with MLflow**  
+   We use **MLflow** to log:
+   - Models
+   - Hyperparameters
+   - Metrics  
+
+   MLflow provides a convenient way to track experiments, making it easier to compare different models and their performance over time.
+
+3. **Model Selection**  
+   As an example, the final node in the pipeline iterates through all the models trained so far and identifies the model with the best performance. This helps streamline the model selection process.
+
+---
+
+## Benefits of MLflow
+
+- **Experiment Tracking**: Easily compare models based on metrics, configurations, and outputs.  
+- **Reproducibility**: Logs ensure that model training processes can be replicated accurately.  
+- **Deployment Ready**: Models logged with MLflow can be directly deployed using MLflow’s deployment tools.
+
+For more details on how to use MLflow, refer to the [MLflow Documentation](https://mlflow.org/docs/latest/index.html).
+
+---
+
+## Next Steps
+
+To get started, modify the placeholder functions in the `model_training` pipeline to include your model-specific training logic. Leverage MLflow to monitor your experiments and ensure you select the best-performing model for deployment or further analysis.

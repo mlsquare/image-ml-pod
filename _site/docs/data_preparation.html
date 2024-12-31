@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Image ML Pod Documentation</title>
+<title>Data Preparation – Image ML Pod Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -110,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API Reference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod</a></li><li class="breadcrumb-item"><a href="../docs/data_preparation.html">Data Preparation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
   </div>
 </li>
@@ -159,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/data_preparation.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/data_preparation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Preparation</span></a>
   </div>
 </li>
@@ -211,9 +245,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link active" data-scroll-target="#data-loading">📂 Data Loading</a>
   <ul class="collapse">
-  <li><a href="#image_ml_pod" id="toc-image_ml_pod" class="nav-link" data-scroll-target="#image_ml_pod">image_ml_pod</a></li>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory Structure</a></li>
+  <li><a href="#using-hfimagefolderdataset" id="toc-using-hfimagefolderdataset" class="nav-link" data-scroll-target="#using-hfimagefolderdataset">Using <code>HFImageFolderDataSet</code></a></li>
+  <li><a href="#processed-dataset-handling" id="toc-processed-dataset-handling" class="nav-link" data-scroll-target="#processed-dataset-handling">Processed Dataset Handling</a></li>
+  </ul></li>
+  <li><a href="#data-preprocessing" id="toc-data-preprocessing" class="nav-link" data-scroll-target="#data-preprocessing">🛠 Data Preprocessing</a>
+  <ul class="collapse">
+  <li><a href="#customization" id="toc-customization" class="nav-link" data-scroll-target="#customization">Customization</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,14 +261,105 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod</a></li><li class="breadcrumb-item"><a href="../docs/data_preparation.html">Data Preparation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data Preparation</h1>
+</div>
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="image_ml_pod" class="level2">
-<h2 class="anchored" data-anchor-id="image_ml_pod">image_ml_pod</h2>
-<p>image_ml_pod</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="data-loading" class="level2">
+<h2 class="anchored" data-anchor-id="data-loading">📂 Data Loading</h2>
+<p>The <strong>Image ML Pod</strong> leverages HuggingFace’s <code>datasets</code> library for robust image data handling. Specifically, the <code>HFImageFolderDataSet</code> is used as a convenient wrapper around the <code>ImageFolder</code> dataset from HuggingFace’s library, enabling seamless loading of datasets stored in a folder structure.</p>
+<p><strong>Key Features</strong>:<br>
+- Compatibility with HuggingFace’s <code>datasets</code>.<br>
+- Easy handling of standard folder-based datasets.<br>
+- <strong>Read-Only</strong>: The dataset does not support saving changes.</p>
+<section id="directory-structure" class="level3">
+<h3 class="anchored" data-anchor-id="directory-structure">Directory Structure</h3>
+<p>Organize your dataset with the following structure:</p>
+<pre><code>data_dir/
+├── train/
+│   ├── class_a/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   └── ...
+├── validation/
+│   ├── class_a/
+│   │   ├── image3.jpg
+│   │   ├── image4.jpg
+│   └── ...
+├── test/
+│   ├── class_a/
+│   │   ├── image5.jpg
+│   │   ├── image6.jpg
+│   └── ...</code></pre>
+<ul>
+<li><strong>Splits</strong>: <code>train</code>, <code>validation</code>, and <code>test</code> directories.<br>
+</li>
+<li><strong>Labels</strong>: Subdirectories represent class labels (e.g., <code>class_a</code>, <code>class_b</code>).</li>
+</ul>
+</section>
+<section id="using-hfimagefolderdataset" class="level3">
+<h3 class="anchored" data-anchor-id="using-hfimagefolderdataset">Using <code>HFImageFolderDataSet</code></h3>
+<p>To integrate <code>HFImageFolderDataSet</code> into your Kedro project, add the following entry to your <code>catalog.yml</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_image_dataset</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> image_ml_pod.datasets.HFImageFolderDataSet</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">data_dir</span><span class="kw">:</span><span class="at"> data/01_raw/images</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>📚 <strong>Reference</strong>: <a href="https://huggingface.co/docs/datasets/en/image_dataset#imagefolder">Hugging Face ImageFolder Dataset</a></p>
+<hr>
+</section>
+<section id="processed-dataset-handling" class="level3">
+<h3 class="anchored" data-anchor-id="processed-dataset-handling">Processed Dataset Handling</h3>
+<p>For saving and loading processed datasets, use <code>HFDatasetWrapper</code>. This ensures datasets are stored in a format suitable for training pipelines or inference workflows.</p>
+<p>To include it in your Kedro project:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_huggingface_dataset</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> image_ml_pod.datasets.HFDatasetWrapper</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">dataset_path</span><span class="kw">:</span><span class="at"> data/processed/my_dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>📚 <strong>Reference</strong>: <a href="https://huggingface.co/docs/datasets/package_reference/main_classes.html">Hugging Face Dataset Documentation</a></p>
+<hr>
+</section>
+</section>
+<section id="data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-preprocessing">🛠 Data Preprocessing</h2>
+<p>The <code>data_preprocessing</code> pipeline provides a modular approach for preparing datasets for training. It includes nodes for:</p>
+<ol type="1">
+<li><strong>Loading Data</strong>: Reads images from the source directory or dataset.<br>
+</li>
+<li><strong>Applying Transforms</strong>: Incorporates <code>torchvision.transforms</code> for preprocessing tasks such as resizing, normalization, and augmentation.<br>
+</li>
+<li><strong>Saving Processed Data</strong>: Stores processed datasets for use in downstream tasks.</li>
+</ol>
+<section id="customization" class="level3">
+<h3 class="anchored" data-anchor-id="customization">Customization</h3>
+<ul>
+<li><strong>Template Nodes</strong>: Edit template nodes for specific preprocessing tasks such as custom augmentation or data splitting.<br>
+</li>
+<li><strong>Dataset Format</strong>: Use the <code>set_format</code> method of the <code>Dataset</code> class to convert data into formats like <code>torch.Tensor</code> or <code>numpy.ndarray</code>. Note: By default, images loaded from <code>ImageFolder</code> are in the PIL format.<br>
+</li>
+<li><strong>Single-Image Support</strong>: Modify nodes to accept single-image inputs, enabling reusability for inference workflows.</li>
+</ul>
+<p><strong>Example</strong>: Adding a custom resize and normalize transform:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> transforms</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.Compose([</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    transforms.Resize((<span class="dv">224</span>, <span class="dv">224</span>)),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    transforms.ToTensor(),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    transforms.Normalize(mean<span class="op">=</span>[<span class="fl">0.485</span>, <span class="fl">0.456</span>, <span class="fl">0.406</span>],</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                         std<span class="op">=</span>[<span class="fl">0.229</span>, <span class="fl">0.224</span>, <span class="fl">0.225</span>]),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

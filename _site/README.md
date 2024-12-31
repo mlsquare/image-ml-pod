@@ -31,6 +31,30 @@ Image ML Pod is a ready-to-use framework designed to make image-based machine le
 
 ---
 
+## **Quick Start**
+
+Get started in minutes with the following steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-repo/image-ml-pod.git
+cd image-ml-pod
+
+# Create a virtual environment
+python -m venv .env
+source .env/bin/activate  # Or .env\Scripts\activate on Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+Run the default pipelines:
+```bash
+kedro run
+```
+
+---
+
 ## **How It Works**
 
 ### Framework Overview

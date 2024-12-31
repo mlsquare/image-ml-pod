@@ -15,16 +15,14 @@ conf/local
 # ignore everything in the following folders
 logs
 notebooks
-references
+reference
 results
+_site
+.quarto
+docs
 
 # except the following
 !logs/.gitkeep
 !notebooks/.gitkeep
 !references/.gitkeep
 !results/.gitkeep
-
-# ignore all data
-data
-# except the 06_models folder
-!data/06_models

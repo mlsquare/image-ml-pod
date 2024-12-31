@@ -1,0 +1,71 @@
+---
+title: Getting Started
+order: 2
+---
+
+Welcome to **Image ML Pod**, a framework for building modular machine learning applications on image datasets. This guide will help you set up your environment and introduce the essential tools integrated into the pod.
+
+---
+
+## 🚀 Setup
+
+Follow these steps to prepare your environment:
+
+1. **Create a Virtual Environment**  
+   Use Python's `venv` or Conda to isolate your development environment. For example, with `venv`:
+
+   ```bash
+   python -m venv .env
+   ```
+
+2. **Clone the Repository**  
+   Clone the repository to your local machine using Git.
+
+3. **Install the Package**  
+   Install the project in editable mode for development flexibility:
+
+   ```bash
+   pip install -e .
+   ```
+
+4. **Install Dependencies**  
+   Use the provided `requirements.txt` file to install all dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+You're now ready to start exploring the pod!
+
+---
+
+## 🛠 Workflow Management with Kedro
+
+We’ve chosen **Kedro** as the backbone for workflow management due to its modular structure and intuitive pipeline design. With Kedro, you can easily manage:
+
+- **Data workflows**: Organize data inputs and outputs.
+- **Pipeline modularity**: Create reusable and scalable pipelines.
+- **Seamless collaboration**: Maintain clear separation of concerns.
+
+📚 **Learn More**: Explore the [Kedro documentation](https://docs.kedro.org/en/stable/) for a comprehensive overview.
+
+---
+
+## ✅ Pre-commit Hooks
+
+To keep your project clean and automated, we’ve configured pre-commit hooks for:
+
+1. **Linting**: Enforces consistent code style and formatting. Learn more [here](https://docs.kedro.org/en/stable/development/linting.html).
+2. **Testing**: Automates tests to ensure code reliability. Learn more [here](https://docs.kedro.org/en/stable/development/automated_testing.html).
+3. **Automatic Documentation Generation**: Keeps your documentation synchronized with your codebase.
+
+### Install the Hooks
+
+Activate the pre-commit hooks by running:
+
+```bash
+pre-commit install
+```
+
+From this point forward, these hooks will automatically check your code on each commit, ensuring high standards across the board.
+

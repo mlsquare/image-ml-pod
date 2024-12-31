@@ -1,0 +1,59 @@
+---
+title: Bootstrapping an API using FastAPI and Kedro Boot
+order: 7
+---
+
+# Bootstrapping an API using FastAPI and Kedro Boot
+
+The final stage of this pod involves bootstrapping all the nodes across the inference pipelines to create a FastAPI server. This enables easy deployment and interaction with your inference workflow as an API.
+
+---
+
+## Key Steps
+
+1. **Tagging Nodes**  
+   Ensure that all the nodes you want to include in the server are tagged with `"inference"`. This allows seamless integration into the FastAPI server.
+
+2. **Using Kedro Boot**  
+   We use **Kedro Boot**, a Kedro plugin that preloads components in a modular pipeline. This minimizes runtime for every API request, enhancing performance.
+
+---
+
+## Launching the API
+
+The relevant code is located in the folder:  
+`image_ml_pod/src/image_ml_pod_fastapi`.
+
+### To launch the API server locally:
+```bash
+uvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000
+```
+
+---
+
+## Docker Integration
+
+We have provided a **Dockerfile** for easy deployment of the FastAPI server.
+
+### To build the Docker image:
+```bash
+docker build -t image-ml-pod .
+```
+
+### To run the Docker image with GPU support:
+```bash
+docker run -p 8000:8000 --gpus all image-ml-pod
+```
+
+> **Note**: The current Docker image is designed for rapid prototyping and may not be fully optimized. You can refine it further for production use.
+
+---
+
+## Scalability Considerations
+
+While the current implementation is monolithic, consider using **microservices** for better scalability:  
+- Each of the three pipelines involved in inference (`inf_data_preprocessing`, `model_inference`, and `inf_pred_postprocessing`) could be deployed as separate microservices.
+- This would allow scaling relevant hardware (e.g., GPU nodes for inference) independently.
+
+---
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Image ML Pod Documentation</title>
+<title>Data Preprocessing for Inferencing – Image ML Pod Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API Reference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod</a></li><li class="breadcrumb-item"><a href="../docs/inf_data_preprocessing.html">Data Preprocessing for Inferencing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
   </div>
 </li>
@@ -147,20 +147,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contents</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../docs/getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting Started</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/data_preparation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Preparation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -171,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/inf_data_preprocessing.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/inf_data_preprocessing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Data Preprocessing for Inferencing</span></a>
   </div>
 </li>
@@ -195,6 +183,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../docs/data_preparation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Preparation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/documentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Documentation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../docs/documentation_gen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automatic Documentation Generation</span></a>
   </div>
@@ -211,9 +211,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#data-preprocessing-for-inferencing" id="toc-data-preprocessing-for-inferencing" class="nav-link active" data-scroll-target="#data-preprocessing-for-inferencing">Data Preprocessing for Inferencing</a>
   <ul class="collapse">
-  <li><a href="#image_ml_pod" id="toc-image_ml_pod" class="nav-link" data-scroll-target="#image_ml_pod">image_ml_pod</a></li>
+  <li><a href="#ood-detection" id="toc-ood-detection" class="nav-link" data-scroll-target="#ood-detection">OOD Detection</a>
+  <ul class="collapse">
+  <li><a href="#features-of-ood-detection-pipeline" id="toc-features-of-ood-detection-pipeline" class="nav-link" data-scroll-target="#features-of-ood-detection-pipeline">Features of OOD Detection Pipeline</a></li>
+  <li><a href="#getting-started-with-ood-detection" id="toc-getting-started-with-ood-detection" class="nav-link" data-scroll-target="#getting-started-with-ood-detection">Getting Started with OOD Detection</a></li>
+  </ul></li>
+  <li><a href="#customization-tips" id="toc-customization-tips" class="nav-link" data-scroll-target="#customization-tips">Customization Tips</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,14 +226,69 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod</a></li><li class="breadcrumb-item"><a href="../docs/inf_data_preprocessing.html">Data Preprocessing for Inferencing</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Data Preprocessing for Inferencing</h1>
+</div>
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="image_ml_pod" class="level2">
-<h2 class="anchored" data-anchor-id="image_ml_pod">image_ml_pod</h2>
-<p>image_ml_pod</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="data-preprocessing-for-inferencing" class="level1">
+<h1>Data Preprocessing for Inferencing</h1>
+<p>Inference is decomposed into three distinct steps, and this is the first: <strong>data preprocessing for inferencing</strong>. The <code>inf_data_preprocessing</code> pipeline includes nodes for:</p>
+<ol type="1">
+<li><strong>Input Image Preprocessing</strong><br>
+</li>
+<li><strong>Out-of-Distribution (OOD) Detection</strong></li>
+</ol>
+<p>You can extend this pipeline by adding nodes to perform additional operations on input images before they are passed to the model.</p>
+<hr>
+<section id="ood-detection" class="level2">
+<h2 class="anchored" data-anchor-id="ood-detection">OOD Detection</h2>
+<p>For <strong>Out-of-Distribution (OOD) Detection</strong>, we use the <code>pytorch-ood</code> library. A separate pipeline, titled <code>ood_detection</code>, is provided to train and integrate custom OOD detectors.</p>
+<section id="features-of-ood-detection-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="features-of-ood-detection-pipeline">Features of OOD Detection Pipeline</h3>
+<ul>
+<li><strong>Preconfigured Templates</strong><br>
+We provide templates for the following OOD detectors:
+<ul>
+<li><strong>MSP Detector</strong>: Maximum Softmax Probability Detector<br>
+</li>
+<li><strong>RMD Detector</strong>: Relative Mahalanobis Distance Detector<br>
+</li>
+<li><strong>Multi-Mahalanobis Detector</strong>: An enhanced version of the Mahalanobis-based detector.</li>
+</ul></li>
+<li><strong>Dataset Example</strong><br>
+The pipeline is configured to use CIFAR-10 as the “out-of-distribution” dataset by default. However, you can adapt the pipeline to use any dataset of your choice.</li>
+</ul>
+</section>
+<section id="getting-started-with-ood-detection" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-ood-detection">Getting Started with OOD Detection</h3>
+<ol type="1">
+<li>Train your custom OOD detector by modifying the templates provided in the <code>ood_detection</code> pipeline.</li>
+<li>For further customization or advanced features, refer to the <a href="https://pytorch-ood.readthedocs.io/en/v0.2.0/info.html">PyTorch OOD Documentation</a>.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="customization-tips" class="level2">
+<h2 class="anchored" data-anchor-id="customization-tips">Customization Tips</h2>
+<ul>
+<li><strong>Add Preprocessing Steps</strong>: Extend the <code>inf_data_preprocessing</code> pipeline to include additional transformations or preprocessing steps suited to your use case.</li>
+<li><strong>Experiment with OOD Detectors</strong>: Customize the OOD pipeline to use different datasets or fine-tune the provided detectors to improve performance.</li>
+</ul>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Image ML Pod Documentation</title>
+<title>Postprocessing on Predictions – Image ML Pod Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,10 +92,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/documentaion.qmd"> 
-<span class="menu-text">Documentation</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
@@ -110,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API Reference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/inf_pred_postprocessing.html">Postprocessing on Predictions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,25 +128,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rough.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rough</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../docs/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Image ML Pod</span></a>
+ <span class="menu-text">Image ML Pod Documentation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contents</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/getting_started.html" class="sidebar-item-text sidebar-link">
@@ -183,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/inf_pred_postprocessing.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/inf_pred_postprocessing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Postprocessing on Predictions</span></a>
   </div>
 </li>
@@ -211,9 +207,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#postprocessing-on-predictions" id="toc-postprocessing-on-predictions" class="nav-link active" data-scroll-target="#postprocessing-on-predictions">Postprocessing on Predictions</a>
   <ul class="collapse">
-  <li><a href="#image_ml_pod" id="toc-image_ml_pod" class="nav-link" data-scroll-target="#image_ml_pod">image_ml_pod</a></li>
+  <li><a href="#conformal-predictions" id="toc-conformal-predictions" class="nav-link" data-scroll-target="#conformal-predictions">Conformal Predictions</a></li>
+  <li><a href="#integrated-gradients" id="toc-integrated-gradients" class="nav-link" data-scroll-target="#integrated-gradients">Integrated Gradients</a></li>
+  <li><a href="#logging-predictions" id="toc-logging-predictions" class="nav-link" data-scroll-target="#logging-predictions">Logging Predictions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,14 +219,70 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/inf_pred_postprocessing.html">Postprocessing on Predictions</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Postprocessing on Predictions</h1>
+</div>
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="image_ml_pod" class="level2">
-<h2 class="anchored" data-anchor-id="image_ml_pod">image_ml_pod</h2>
-<p>image_ml_pod</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="postprocessing-on-predictions" class="level1">
+<h1>Postprocessing on Predictions</h1>
+<p>The <code>inf_pred_postprocessing</code> pipeline represents the final stage of inference, where model predictions undergo postprocessing. This pipeline includes nodes for:<br>
+1. <strong>Conformal Predictions</strong><br>
+2. <strong>Explainability using Integrated Gradients</strong><br>
+3. <strong>Logging Predictions</strong></p>
+<hr>
+<section id="conformal-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="conformal-predictions">Conformal Predictions</h2>
+<p>To improve the reliability of model predictions, we use <strong>Conformal Predictions</strong>. This approach ensures that the model provides a set of predictions, with a guarantee that the ground truth will fall within this set with a specified level of certainty.</p>
+<ul>
+<li><strong>Method</strong>: We use the <strong>RAPS</strong> (Regularized Adaptive Prediction Sets) method from the <code>torchcp</code> package.<br>
+</li>
+<li><strong>References</strong>:
+<ul>
+<li><a href="https://torchcp.readthedocs.io/">TorchCP Documentation</a><br>
+</li>
+<li><a href="https://arxiv.org/abs/2009.14193">RAPS Research Paper</a></li>
+</ul></li>
+</ul>
+<p>Conformal predictions help enhance trust in model outputs, especially in high-stakes applications.</p>
+<hr>
+</section>
+<section id="integrated-gradients" class="level2">
+<h2 class="anchored" data-anchor-id="integrated-gradients">Integrated Gradients</h2>
+<p>For explainability, we use <strong>Integrated Gradients</strong>, a technique that helps visualize the contribution of each input feature (e.g., pixels) to the model’s prediction.</p>
+<ul>
+<li><strong>Tool</strong>: The <a href="https://captum.ai/docs/extension/integrated_gradients">Captum library</a> is used for this purpose.<br>
+</li>
+<li><strong>Usage</strong>: Integrated Gradients provide insights into the importance of each pixel in the input image, enabling better interpretability of the model’s decision-making process.</li>
+</ul>
+<hr>
+</section>
+<section id="logging-predictions" class="level2">
+<h2 class="anchored" data-anchor-id="logging-predictions">Logging Predictions</h2>
+<p>We use Python’s <code>logging</code> module as a placeholder for recording predictions and other relevant information. However, you can extend this functionality to log additional metrics, such as:</p>
+<ul>
+<li>Prediction confidence scores<br>
+</li>
+<li>Prediction sets from conformal methods<br>
+</li>
+<li>Gradients or feature importances</li>
+</ul>
+<p>Logging can also integrate with external monitoring tools to facilitate real-time tracking of inference results.</p>
+<hr>
 
 
 </section>

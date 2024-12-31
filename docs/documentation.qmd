@@ -1,0 +1,14 @@
+---
+title: Contents
+order: 1
+---
+
+1. [Getting Started](getting_started.qmd)
+2. [Data Preparation](data_preparation.qmd)
+3. [Model Training](model_training.qmd)
+4. Inference:
+    1. [Data Preprocessing](inf_data_preprocessing.qmd)
+    2. [Model Inference](model_inference.qmd)
+    3. [Postprocessing](inf_pred_postprocessing.qmd)
+5. [Deployment](backend_server.qmd)
+6. [Documentation Generation](documentation_gen.qmd)

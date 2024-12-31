@@ -1,0 +1,96 @@
+---
+title: Data Preparation
+order: 3
+---
+
+## 📂 Data Loading  
+
+The **Image ML Pod** leverages HuggingFace's `datasets` library for robust image data handling. Specifically, the `HFImageFolderDataSet` is used as a convenient wrapper around the `ImageFolder` dataset from HuggingFace's library, enabling seamless loading of datasets stored in a folder structure.  
+
+**Key Features**:  
+- Compatibility with HuggingFace's `datasets`.  
+- Easy handling of standard folder-based datasets.  
+- **Read-Only**: The dataset does not support saving changes.  
+
+### Directory Structure  
+
+Organize your dataset with the following structure:  
+
+```
+data_dir/
+├── train/
+│   ├── class_a/
+│   │   ├── image1.jpg
+│   │   ├── image2.jpg
+│   └── ...
+├── validation/
+│   ├── class_a/
+│   │   ├── image3.jpg
+│   │   ├── image4.jpg
+│   └── ...
+├── test/
+│   ├── class_a/
+│   │   ├── image5.jpg
+│   │   ├── image6.jpg
+│   └── ...
+```
+
+- **Splits**: `train`, `validation`, and `test` directories.  
+- **Labels**: Subdirectories represent class labels (e.g., `class_a`, `class_b`).  
+
+### Using `HFImageFolderDataSet`  
+
+To integrate `HFImageFolderDataSet` into your Kedro project, add the following entry to your `catalog.yml`:  
+
+```yaml
+my_image_dataset:
+    type: image_ml_pod.datasets.HFImageFolderDataSet
+    data_dir: data/01_raw/images
+```  
+
+📚 **Reference**: [Hugging Face ImageFolder Dataset](https://huggingface.co/docs/datasets/en/image_dataset#imagefolder)  
+
+---
+
+### Processed Dataset Handling  
+
+For saving and loading processed datasets, use `HFDatasetWrapper`. This ensures datasets are stored in a format suitable for training pipelines or inference workflows.  
+
+To include it in your Kedro project:  
+
+```yaml
+my_huggingface_dataset:
+    type: image_ml_pod.datasets.HFDatasetWrapper
+    dataset_path: data/processed/my_dataset
+```  
+
+📚 **Reference**: [Hugging Face Dataset Documentation](https://huggingface.co/docs/datasets/package_reference/main_classes.html)  
+
+---
+
+## 🛠 Data Preprocessing  
+
+The `data_preprocessing` pipeline provides a modular approach for preparing datasets for training. It includes nodes for:  
+
+1. **Loading Data**: Reads images from the source directory or dataset.  
+2. **Applying Transforms**: Incorporates `torchvision.transforms` for preprocessing tasks such as resizing, normalization, and augmentation.  
+3. **Saving Processed Data**: Stores processed datasets for use in downstream tasks.  
+
+### Customization  
+
+- **Template Nodes**: Edit template nodes for specific preprocessing tasks such as custom augmentation or data splitting.  
+- **Dataset Format**: Use the `set_format` method of the `Dataset` class to convert data into formats like `torch.Tensor` or `numpy.ndarray`. Note: By default, images loaded from `ImageFolder` are in the PIL format.  
+- **Single-Image Support**: Modify nodes to accept single-image inputs, enabling reusability for inference workflows.  
+
+**Example**: Adding a custom resize and normalize transform:  
+
+```python
+from torchvision import transforms
+
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225]),
+])
+```

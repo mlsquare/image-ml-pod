@@ -1,20 +1,26 @@
 project:
   type: website
 website:
-  title: "Image ML Pod"
+  title: "Image ML Pod Documentation"
   navbar:
     left:
       - href: docs/index.qmd
         text: Home
+      - href: docs/documentaion.qmd
+        text: Documentation
       - href: reference/index.qmd
-        text: Reference
+        text: API Reference
+  sidebar:
+    contents: auto
+    search: true
+  bread-crumbs: true
 quartodoc:
   style: pkgdown
   dir: reference
   package: image_ml_pod
-  sections:
-    - title: API Reference
-      desc: The API reference for the Image ML Pod package.
+  title: "API Reference"
+    
+
   
 format:
   html:

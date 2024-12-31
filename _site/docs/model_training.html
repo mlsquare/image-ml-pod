@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Image ML Pod Documentation</title>
+<title>Model Training – Image ML Pod Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,10 +92,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/documentaion.qmd"> 
-<span class="menu-text">Documentation</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">API Reference</span></a>
   </li>  
@@ -110,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">API Reference</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/model_training.html">Model Training</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,25 +128,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">API Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rough.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rough</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../docs/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Image ML Pod</span></a>
+ <span class="menu-text">Image ML Pod Documentation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/documentation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contents</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/getting_started.html" class="sidebar-item-text sidebar-link">
@@ -165,32 +161,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/model_training.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/model_training.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Model Training</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/inf_data_preprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Preprocessing for Inferencing</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/model_inference.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model Inference</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/inf_pred_postprocessing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Postprocessing on Predictions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/backend_server.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bootstrapping an API using FastAPI and Kedro Boot</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -211,9 +183,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <li><a href="#model-training" id="toc-model-training" class="nav-link active" data-scroll-target="#model-training">Model Training</a>
   <ul class="collapse">
-  <li><a href="#image_ml_pod" id="toc-image_ml_pod" class="nav-link" data-scroll-target="#image_ml_pod">image_ml_pod</a></li>
+  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
+  <li><a href="#benefits-of-mlflow" id="toc-benefits-of-mlflow" class="nav-link" data-scroll-target="#benefits-of-mlflow">Benefits of MLflow</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,14 +195,62 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/index.html">Image ML Pod Documentation</a></li><li class="breadcrumb-item"><a href="../docs/model_training.html">Model Training</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Model Training</h1>
+</div>
 
 
 
-<section id="api-reference" class="level1 doc doc-index">
-<h1 class="doc doc-index">API Reference</h1>
-<section id="image_ml_pod" class="level2">
-<h2 class="anchored" data-anchor-id="image_ml_pod">image_ml_pod</h2>
-<p>image_ml_pod</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="model-training" class="level1">
+<h1>Model Training</h1>
+<p>The <strong>Image ML Pod</strong> framework provides a pipeline titled <code>model_training</code> with placeholder functions for training and evaluating models. This pipeline is designed to be modular and easily customizable for various use cases.</p>
+<hr>
+<section id="key-features" class="level2">
+<h2 class="anchored" data-anchor-id="key-features">Key Features</h2>
+<ol type="1">
+<li><p><strong>Training and Evaluation</strong><br>
+The pipeline includes templates for implementing model training and evaluation logic. You can modify these functions to fit your specific requirements.</p></li>
+<li><p><strong>Model Tracking with MLflow</strong><br>
+We use <strong>MLflow</strong> to log:</p>
+<ul>
+<li>Models</li>
+<li>Hyperparameters</li>
+<li>Metrics</li>
+</ul>
+<p>MLflow provides a convenient way to track experiments, making it easier to compare different models and their performance over time.</p></li>
+<li><p><strong>Model Selection</strong><br>
+As an example, the final node in the pipeline iterates through all the models trained so far and identifies the model with the best performance. This helps streamline the model selection process.</p></li>
+</ol>
+<hr>
+</section>
+<section id="benefits-of-mlflow" class="level2">
+<h2 class="anchored" data-anchor-id="benefits-of-mlflow">Benefits of MLflow</h2>
+<ul>
+<li><strong>Experiment Tracking</strong>: Easily compare models based on metrics, configurations, and outputs.<br>
+</li>
+<li><strong>Reproducibility</strong>: Logs ensure that model training processes can be replicated accurately.<br>
+</li>
+<li><strong>Deployment Ready</strong>: Models logged with MLflow can be directly deployed using MLflow’s deployment tools.</li>
+</ul>
+<p>For more details on how to use MLflow, refer to the <a href="https://mlflow.org/docs/latest/index.html">MLflow Documentation</a>.</p>
+<hr>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>To get started, modify the placeholder functions in the <code>model_training</code> pipeline to include your model-specific training logic. Leverage MLflow to monitor your experiments and ensure you select the best-performing model for deployment or further analysis.</p>
 
 
 </section>

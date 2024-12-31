@@ -1,0 +1,31 @@
+---
+title: Model Inference
+order: 5
+---
+
+# Model Inference
+
+The `model_inference` pipeline is designed to handle the final stage of inference. It currently includes a single placeholder node for **predicting outputs**, which you can customize to implement your model-specific inference logic.
+
+---
+
+## Key Features
+
+- **Placeholder Node**: The pipeline includes a template node for predictions. This ensures a simple starting point for implementing your inference workflow.
+- **Customizable**: You can add additional nodes or modify the existing one to include preprocessing, postprocessing, or any additional operations required for inference.
+
+---
+
+## Implementation Tips
+
+1. **Add Batch Processing**  
+   If your inference involves multiple inputs, consider implementing batch processing to optimize performance.
+
+---
+
+## Next Steps
+
+To complete the inference pipeline:
+1. Replace the placeholder node with your model-specific prediction logic.
+2. Integrate the `model_inference` pipeline with the `inf_data_preprocessing` pipeline to create a seamless end-to-end workflow.
+

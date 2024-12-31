@@ -1,5 +1,5 @@
-# Function reference {.doc .doc-index}
+# API Reference {.doc .doc-index}
 
-## API Reference
+## image_ml_pod
 
-The API reference for the Image ML Pod package.
+image_ml_pod

@@ -1,0 +1,49 @@
+---
+title: Postprocessing on Predictions
+order: 6
+---
+
+# Postprocessing on Predictions
+
+The `inf_pred_postprocessing` pipeline represents the final stage of inference, where model predictions undergo postprocessing. This pipeline includes nodes for:  
+1. **Conformal Predictions**  
+2. **Explainability using Integrated Gradients**  
+3. **Logging Predictions**  
+
+---
+
+## Conformal Predictions
+
+To improve the reliability of model predictions, we use **Conformal Predictions**. This approach ensures that the model provides a set of predictions, with a guarantee that the ground truth will fall within this set with a specified level of certainty. 
+
+- **Method**: We use the **RAPS** (Regularized Adaptive Prediction Sets) method from the `torchcp` package.  
+- **References**:
+  - [TorchCP Documentation](https://torchcp.readthedocs.io/)  
+  - [RAPS Research Paper](https://arxiv.org/abs/2009.14193)
+
+Conformal predictions help enhance trust in model outputs, especially in high-stakes applications.
+
+---
+
+## Integrated Gradients
+
+For explainability, we use **Integrated Gradients**, a technique that helps visualize the contribution of each input feature (e.g., pixels) to the model's prediction.
+
+- **Tool**: The [Captum library](https://captum.ai/docs/extension/integrated_gradients) is used for this purpose.  
+- **Usage**: Integrated Gradients provide insights into the importance of each pixel in the input image, enabling better interpretability of the model's decision-making process.
+
+---
+
+## Logging Predictions
+
+We use Python's `logging` module as a placeholder for recording predictions and other relevant information. However, you can extend this functionality to log additional metrics, such as:  
+
+- Prediction confidence scores  
+- Prediction sets from conformal methods  
+- Gradients or feature importances  
+
+Logging can also integrate with external monitoring tools to facilitate real-time tracking of inference results.
+
+---
+
+

@@ -1,0 +1,73 @@
+---
+title: Automatic Documentation Generation
+# order: 
+---
+
+This pod leverages **quartodoc** and **quarto** to generate documentation directly from the codebase. This ensures seamless integration of documentation with the code and keeps it consistently up-to-date.
+
+---
+
+## Prerequisites
+
+1. **Install Quarto**  
+   Ensure you have Quarto installed by following the instructions [here](https://quarto.org/docs/get-started/).
+
+2. **Configure Quartodoc**  
+   Quartodoc extracts docstrings from Python code and generates markdown files for documentation.
+
+---
+
+## Steps to Enable Automatic Documentation
+
+1. **Expose Functions or Classes for Quartodoc**  
+   - Add functions or classes with docstrings to the `__all__` list in the package's `__init__.py` file.  
+   - For example, in the [`__init__.py`](../src/image_ml_pod/__init__.py) file:
+
+     ```python
+     __all__ = ["function_name", "ClassName"]
+     ```
+
+2. **Include in Reference Documentation**  
+   - Update the `_quarto.yml` file at the project root to include the new items in the `quartodoc` configuration.  
+   - Under the `sections` key, specify the items you want in the reference documentation.
+
+3. **Pre-commit Hook for Auto-generation**  
+   - The `.pre_commit_config.yaml` file includes a hook that auto-generates documentation files before each commit. This ensures your documentation reflects the latest codebase.
+
+---
+
+## Manually Generating Documentation
+
+To manually generate the documentation, run:
+
+```bash
+quartodoc build
+```
+
+The generated markdown files will be located in the `reference` folder at the project root.
+
+---
+
+## Viewing Documentation
+
+1. **View as Markdown**  
+   Navigate to the `reference` folder and open the generated markdown files.
+
+2. **View as a Website**  
+   Launch a local preview server by running:
+
+   ```bash
+   quarto preview
+   ```
+
+   This opens the documentation in a browser as a website.
+
+---
+
+## Additional Resources
+
+For detailed guides on Quartodoc and Quarto, visit:
+
+- [Quartodoc Documentation](https://machow.github.io/quartodoc/get-started/overview.html)
+- [Quarto Documentation](https://quarto.org/docs/get-started/)
+
