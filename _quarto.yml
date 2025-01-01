@@ -6,7 +6,7 @@ website:
     left:
       - href: docs/index.qmd
         text: Home
-      - href: docs/documentaion.qmd
+      - href: docs/documentation.qmd
         text: Documentation
       - href: reference/index.qmd
         text: API Reference
@@ -14,6 +14,7 @@ website:
     contents: auto
     search: true
   bread-crumbs: true
+
 quartodoc:
   style: pkgdown
   dir: reference
