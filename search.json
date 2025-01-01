@@ -1,0 +1,542 @@
+[
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "API Reference",
+    "section": "",
+    "text": "image_ml_pod",
+    "crumbs": [
+      "Home",
+      "API Reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#image_ml_pod",
+    "href": "reference/index.html#image_ml_pod",
+    "title": "API Reference",
+    "section": "",
+    "text": "image_ml_pod",
+    "crumbs": [
+      "Home",
+      "API Reference"
+    ]
+  },
+  {
+    "objectID": "docs/index.html",
+    "href": "docs/index.html",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "A modular framework to simplify your image dataset workflows.\nImage ML Pod is a ready-to-use framework designed to make image-based machine learning pipelines easier, faster, and more scalable. From preprocessing to training, inference, and deployment, this pod provides you with tools and templates to focus on building your models instead of managing workflows.\n\n\n\n\nPrebuilt Kedro Pipelines: Modular workflows for preprocessing, training, inference, and postprocessing.\nSeamless Integration: Built-in support for HuggingFace datasets, MLFlow, FastAPI, and Docker.\nCutting-Edge Features:\n\nOut-of-Distribution (OOD) detection.\nConformal predictions for reliability.\nExplainability with Integrated Gradients.\n\nScalable Deployment: Easily bootstrap APIs or explore microservices architecture.\nTime-Saving: Spend less time on setup and more on experimentation.\n\n\n\n\n\n\nModular Design: Use only the pipelines you need, customize nodes, and add new ones effortlessly.\nAutomatic OOD Detection: Ensure robustness with templates for MSP, RMD, and MultiMahalanobis detectors.\nExperiment Tracking: MLFlow integration lets you log hyperparameters, metrics, and models.\nFastAPI Integration: Bootstrap APIs directly from inference pipelines.\nDocker Support: Build and deploy your applications seamlessly with GPU compatibility.\nConformal Predictions: Generate reliable prediction sets with torchcp.\nExplainability: Use Captum’s Integrated Gradients to interpret your model’s decisions.\n\n\n\n\n\n\n\n\nData Handling: HuggingFace datasets integration for seamless loading and processing of image datasets.\nPreprocessing: Ready-to-use pipelines for image transforms, OOD detection, and data augmentation.\nTraining: Kedro pipelines with placeholders for custom models and training logic.\nInference: FastAPI server integration for real-time inference.\nPostprocessing: Enhance predictions with conformal methods and explainability tools.\n\n\n\n\n\n\n\nPrebuilt Pipelines\n\nLoad an image dataset with HuggingFace’s ImageFolder.\nTrain a model and log results with MLFlow.\nDeploy the inference pipeline as a FastAPI server.\n\nExample Commands\n# Generate conformal predictions\nkedro run --pipeline=inf_pred_postprocessing\n\n# Launch the FastAPI server\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000\n\n\n\n\n\n\n\n\nModify existing Kedro nodes or add new ones in the pipeline YAML files.\nUse the provided templates for:\n\nData Preprocessing: Add torchvision transforms or custom logic.\nOOD Detection: Train your own detectors.\nPostprocessing: Implement explainability or custom logging.\n\n\n\n\n\n\nAdd or remove nodes by editing the catalog.yml and pipeline configuration files.\nExample:\nmy_image_dataset:\n    type: image_ml_pod.datasets.HFImageFolderDataSet\n    data_dir: data/01_raw/images\n\n\n\n\n\n\n\n\nRun the FastAPI server for inference:\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000\n\n\n\nBuild the Docker image:\ndocker build -t image-ml-pod .\nRun the Docker container with GPU support:\ndocker run -p 8000:8000 --gpus all image-ml-pod\n\n\n\n\n\nWe use Quarto and Quartodoc to generate up-to-date documentation directly from the codebase. To view:\n# Generate docs\nquartodoc build\n\n# Preview as a website\nquarto preview\n\n\n\n\nThis project is licensed under the MIT License. See the LICENSE file for details.\n\n\n\n\nBuilt with love using Kedro, HuggingFace, MLFlow, FastAPI, and more. Special thanks to the open-source community for providing the tools that made this possible.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#why-image-ml-pod",
+    "href": "docs/index.html#why-image-ml-pod",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Prebuilt Kedro Pipelines: Modular workflows for preprocessing, training, inference, and postprocessing.\nSeamless Integration: Built-in support for HuggingFace datasets, MLFlow, FastAPI, and Docker.\nCutting-Edge Features:\n\nOut-of-Distribution (OOD) detection.\nConformal predictions for reliability.\nExplainability with Integrated Gradients.\n\nScalable Deployment: Easily bootstrap APIs or explore microservices architecture.\nTime-Saving: Spend less time on setup and more on experimentation.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#key-features",
+    "href": "docs/index.html#key-features",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Modular Design: Use only the pipelines you need, customize nodes, and add new ones effortlessly.\nAutomatic OOD Detection: Ensure robustness with templates for MSP, RMD, and MultiMahalanobis detectors.\nExperiment Tracking: MLFlow integration lets you log hyperparameters, metrics, and models.\nFastAPI Integration: Bootstrap APIs directly from inference pipelines.\nDocker Support: Build and deploy your applications seamlessly with GPU compatibility.\nConformal Predictions: Generate reliable prediction sets with torchcp.\nExplainability: Use Captum’s Integrated Gradients to interpret your model’s decisions.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#how-it-works",
+    "href": "docs/index.html#how-it-works",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Data Handling: HuggingFace datasets integration for seamless loading and processing of image datasets.\nPreprocessing: Ready-to-use pipelines for image transforms, OOD detection, and data augmentation.\nTraining: Kedro pipelines with placeholders for custom models and training logic.\nInference: FastAPI server integration for real-time inference.\nPostprocessing: Enhance predictions with conformal methods and explainability tools.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#demos",
+    "href": "docs/index.html#demos",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Prebuilt Pipelines\n\nLoad an image dataset with HuggingFace’s ImageFolder.\nTrain a model and log results with MLFlow.\nDeploy the inference pipeline as a FastAPI server.\n\nExample Commands\n# Generate conformal predictions\nkedro run --pipeline=inf_pred_postprocessing\n\n# Launch the FastAPI server\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#customization",
+    "href": "docs/index.html#customization",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Modify existing Kedro nodes or add new ones in the pipeline YAML files.\nUse the provided templates for:\n\nData Preprocessing: Add torchvision transforms or custom logic.\nOOD Detection: Train your own detectors.\nPostprocessing: Implement explainability or custom logging.\n\n\n\n\n\n\nAdd or remove nodes by editing the catalog.yml and pipeline configuration files.\nExample:\nmy_image_dataset:\n    type: image_ml_pod.datasets.HFImageFolderDataSet\n    data_dir: data/01_raw/images",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#deployment",
+    "href": "docs/index.html#deployment",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Run the FastAPI server for inference:\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000\n\n\n\nBuild the Docker image:\ndocker build -t image-ml-pod .\nRun the Docker container with GPU support:\ndocker run -p 8000:8000 --gpus all image-ml-pod",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#documentation",
+    "href": "docs/index.html#documentation",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "We use Quarto and Quartodoc to generate up-to-date documentation directly from the codebase. To view:\n# Generate docs\nquartodoc build\n\n# Preview as a website\nquarto preview",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#license",
+    "href": "docs/index.html#license",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "This project is licensed under the MIT License. See the LICENSE file for details.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#acknowledgments",
+    "href": "docs/index.html#acknowledgments",
+    "title": "Image ML Pod",
+    "section": "",
+    "text": "Built with love using Kedro, HuggingFace, MLFlow, FastAPI, and more. Special thanks to the open-source community for providing the tools that made this possible.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod"
+    ]
+  },
+  {
+    "objectID": "docs/getting_started.html",
+    "href": "docs/getting_started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Welcome to Image ML Pod, a framework for building modular machine learning applications on image datasets. This guide will help you set up your environment and introduce the essential tools integrated into the pod.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "docs/getting_started.html#setup",
+    "href": "docs/getting_started.html#setup",
+    "title": "Getting Started",
+    "section": "🚀 Setup",
+    "text": "🚀 Setup\nFollow these steps to prepare your environment:\n\nCreate a Virtual Environment\nUse Python’s venv or Conda to isolate your development environment. For example, with venv:\npython -m venv .env\nClone the Repository\nClone the repository to your local machine using Git.\nInstall the Package\nInstall the project in editable mode for development flexibility:\npip install -e .\nInstall Dependencies\nUse the provided requirements.txt file to install all dependencies:\npip install -r requirements.txt\n\nYou’re now ready to start exploring the pod!",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "docs/getting_started.html#workflow-management-with-kedro",
+    "href": "docs/getting_started.html#workflow-management-with-kedro",
+    "title": "Getting Started",
+    "section": "🛠 Workflow Management with Kedro",
+    "text": "🛠 Workflow Management with Kedro\nWe’ve chosen Kedro as the backbone for workflow management due to its modular structure and intuitive pipeline design. With Kedro, you can easily manage:\n\nData workflows: Organize data inputs and outputs.\nPipeline modularity: Create reusable and scalable pipelines.\nSeamless collaboration: Maintain clear separation of concerns.\n\n📚 Learn More: Explore the Kedro documentation for a comprehensive overview.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "docs/getting_started.html#pre-commit-hooks",
+    "href": "docs/getting_started.html#pre-commit-hooks",
+    "title": "Getting Started",
+    "section": "✅ Pre-commit Hooks",
+    "text": "✅ Pre-commit Hooks\nTo keep your project clean and automated, we’ve configured pre-commit hooks for:\n\nLinting: Enforces consistent code style and formatting. Learn more here.\nTesting: Automates tests to ensure code reliability. Learn more here.\nAutomatic Documentation Generation: Keeps your documentation synchronized with your codebase.\n\n\nInstall the Hooks\nActivate the pre-commit hooks by running:\npre-commit install\nFrom this point forward, these hooks will automatically check your code on each commit, ensuring high standards across the board.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Getting Started"
+    ]
+  },
+  {
+    "objectID": "docs/backend_server.html",
+    "href": "docs/backend_server.html",
+    "title": "Bootstrapping an API using FastAPI and Kedro Boot",
+    "section": "",
+    "text": "The final stage of this pod involves bootstrapping all the nodes across the inference pipelines to create a FastAPI server. This enables easy deployment and interaction with your inference workflow as an API.\n\n\n\n\nTagging Nodes\nEnsure that all the nodes you want to include in the server are tagged with \"inference\". This allows seamless integration into the FastAPI server.\nUsing Kedro Boot\nWe use Kedro Boot, a Kedro plugin that preloads components in a modular pipeline. This minimizes runtime for every API request, enhancing performance.\n\n\n\n\n\nThe relevant code is located in the folder:\nimage_ml_pod/src/image_ml_pod_fastapi.\n\n\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000\n\n\n\n\n\nWe have provided a Dockerfile for easy deployment of the FastAPI server.\n\n\ndocker build -t image-ml-pod .\n\n\n\ndocker run -p 8000:8000 --gpus all image-ml-pod\n\nNote: The current Docker image is designed for rapid prototyping and may not be fully optimized. You can refine it further for production use.\n\n\n\n\n\n\nWhile the current implementation is monolithic, consider using microservices for better scalability:\n- Each of the three pipelines involved in inference (inf_data_preprocessing, model_inference, and inf_pred_postprocessing) could be deployed as separate microservices. - This would allow scaling relevant hardware (e.g., GPU nodes for inference) independently.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Bootstrapping an API using FastAPI and Kedro Boot"
+    ]
+  },
+  {
+    "objectID": "docs/backend_server.html#key-steps",
+    "href": "docs/backend_server.html#key-steps",
+    "title": "Bootstrapping an API using FastAPI and Kedro Boot",
+    "section": "",
+    "text": "Tagging Nodes\nEnsure that all the nodes you want to include in the server are tagged with \"inference\". This allows seamless integration into the FastAPI server.\nUsing Kedro Boot\nWe use Kedro Boot, a Kedro plugin that preloads components in a modular pipeline. This minimizes runtime for every API request, enhancing performance.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Bootstrapping an API using FastAPI and Kedro Boot"
+    ]
+  },
+  {
+    "objectID": "docs/backend_server.html#launching-the-api",
+    "href": "docs/backend_server.html#launching-the-api",
+    "title": "Bootstrapping an API using FastAPI and Kedro Boot",
+    "section": "",
+    "text": "The relevant code is located in the folder:\nimage_ml_pod/src/image_ml_pod_fastapi.\n\n\nuvicorn src.image_ml_pod_fastapi.app:app --host 0.0.0.0 --port 8000",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Bootstrapping an API using FastAPI and Kedro Boot"
+    ]
+  },
+  {
+    "objectID": "docs/backend_server.html#docker-integration",
+    "href": "docs/backend_server.html#docker-integration",
+    "title": "Bootstrapping an API using FastAPI and Kedro Boot",
+    "section": "",
+    "text": "We have provided a Dockerfile for easy deployment of the FastAPI server.\n\n\ndocker build -t image-ml-pod .\n\n\n\ndocker run -p 8000:8000 --gpus all image-ml-pod\n\nNote: The current Docker image is designed for rapid prototyping and may not be fully optimized. You can refine it further for production use.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Bootstrapping an API using FastAPI and Kedro Boot"
+    ]
+  },
+  {
+    "objectID": "docs/backend_server.html#scalability-considerations",
+    "href": "docs/backend_server.html#scalability-considerations",
+    "title": "Bootstrapping an API using FastAPI and Kedro Boot",
+    "section": "",
+    "text": "While the current implementation is monolithic, consider using microservices for better scalability:\n- Each of the three pipelines involved in inference (inf_data_preprocessing, model_inference, and inf_pred_postprocessing) could be deployed as separate microservices. - This would allow scaling relevant hardware (e.g., GPU nodes for inference) independently.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Bootstrapping an API using FastAPI and Kedro Boot"
+    ]
+  },
+  {
+    "objectID": "docs/data_preparation.html",
+    "href": "docs/data_preparation.html",
+    "title": "Data Preparation",
+    "section": "",
+    "text": "The Image ML Pod leverages HuggingFace’s datasets library for robust image data handling. Specifically, the HFImageFolderDataSet is used as a convenient wrapper around the ImageFolder dataset from HuggingFace’s library, enabling seamless loading of datasets stored in a folder structure.\nKey Features:\n- Compatibility with HuggingFace’s datasets.\n- Easy handling of standard folder-based datasets.\n- Read-Only: The dataset does not support saving changes.\n\n\nOrganize your dataset with the following structure:\ndata_dir/\n├── train/\n│   ├── class_a/\n│   │   ├── image1.jpg\n│   │   ├── image2.jpg\n│   └── ...\n├── validation/\n│   ├── class_a/\n│   │   ├── image3.jpg\n│   │   ├── image4.jpg\n│   └── ...\n├── test/\n│   ├── class_a/\n│   │   ├── image5.jpg\n│   │   ├── image6.jpg\n│   └── ...\n\nSplits: train, validation, and test directories.\n\nLabels: Subdirectories represent class labels (e.g., class_a, class_b).\n\n\n\n\nTo integrate HFImageFolderDataSet into your Kedro project, add the following entry to your catalog.yml:\nmy_image_dataset:\n    type: image_ml_pod.datasets.HFImageFolderDataSet\n    data_dir: data/01_raw/images\n📚 Reference: Hugging Face ImageFolder Dataset\n\n\n\n\nFor saving and loading processed datasets, use HFDatasetWrapper. This ensures datasets are stored in a format suitable for training pipelines or inference workflows.\nTo include it in your Kedro project:\nmy_huggingface_dataset:\n    type: image_ml_pod.datasets.HFDatasetWrapper\n    dataset_path: data/processed/my_dataset\n📚 Reference: Hugging Face Dataset Documentation",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preparation"
+    ]
+  },
+  {
+    "objectID": "docs/data_preparation.html#data-loading",
+    "href": "docs/data_preparation.html#data-loading",
+    "title": "Data Preparation",
+    "section": "",
+    "text": "The Image ML Pod leverages HuggingFace’s datasets library for robust image data handling. Specifically, the HFImageFolderDataSet is used as a convenient wrapper around the ImageFolder dataset from HuggingFace’s library, enabling seamless loading of datasets stored in a folder structure.\nKey Features:\n- Compatibility with HuggingFace’s datasets.\n- Easy handling of standard folder-based datasets.\n- Read-Only: The dataset does not support saving changes.\n\n\nOrganize your dataset with the following structure:\ndata_dir/\n├── train/\n│   ├── class_a/\n│   │   ├── image1.jpg\n│   │   ├── image2.jpg\n│   └── ...\n├── validation/\n│   ├── class_a/\n│   │   ├── image3.jpg\n│   │   ├── image4.jpg\n│   └── ...\n├── test/\n│   ├── class_a/\n│   │   ├── image5.jpg\n│   │   ├── image6.jpg\n│   └── ...\n\nSplits: train, validation, and test directories.\n\nLabels: Subdirectories represent class labels (e.g., class_a, class_b).\n\n\n\n\nTo integrate HFImageFolderDataSet into your Kedro project, add the following entry to your catalog.yml:\nmy_image_dataset:\n    type: image_ml_pod.datasets.HFImageFolderDataSet\n    data_dir: data/01_raw/images\n📚 Reference: Hugging Face ImageFolder Dataset\n\n\n\n\nFor saving and loading processed datasets, use HFDatasetWrapper. This ensures datasets are stored in a format suitable for training pipelines or inference workflows.\nTo include it in your Kedro project:\nmy_huggingface_dataset:\n    type: image_ml_pod.datasets.HFDatasetWrapper\n    dataset_path: data/processed/my_dataset\n📚 Reference: Hugging Face Dataset Documentation",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preparation"
+    ]
+  },
+  {
+    "objectID": "docs/data_preparation.html#data-preprocessing",
+    "href": "docs/data_preparation.html#data-preprocessing",
+    "title": "Data Preparation",
+    "section": "🛠 Data Preprocessing",
+    "text": "🛠 Data Preprocessing\nThe data_preprocessing pipeline provides a modular approach for preparing datasets for training. It includes nodes for:\n\nLoading Data: Reads images from the source directory or dataset.\n\nApplying Transforms: Incorporates torchvision.transforms for preprocessing tasks such as resizing, normalization, and augmentation.\n\nSaving Processed Data: Stores processed datasets for use in downstream tasks.\n\n\nCustomization\n\nTemplate Nodes: Edit template nodes for specific preprocessing tasks such as custom augmentation or data splitting.\n\nDataset Format: Use the set_format method of the Dataset class to convert data into formats like torch.Tensor or numpy.ndarray. Note: By default, images loaded from ImageFolder are in the PIL format.\n\nSingle-Image Support: Modify nodes to accept single-image inputs, enabling reusability for inference workflows.\n\nExample: Adding a custom resize and normalize transform:\nfrom torchvision import transforms\n\ntransform = transforms.Compose([\n    transforms.Resize((224, 224)),\n    transforms.ToTensor(),\n    transforms.Normalize(mean=[0.485, 0.456, 0.406],\n                         std=[0.229, 0.224, 0.225]),\n])",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preparation"
+    ]
+  },
+  {
+    "objectID": "docs/model_training.html",
+    "href": "docs/model_training.html",
+    "title": "Model Training",
+    "section": "",
+    "text": "The Image ML Pod framework provides a pipeline titled model_training with placeholder functions for training and evaluating models. This pipeline is designed to be modular and easily customizable for various use cases.\n\n\n\n\nTraining and Evaluation\nThe pipeline includes templates for implementing model training and evaluation logic. You can modify these functions to fit your specific requirements.\nModel Tracking with MLflow\nWe use MLflow to log:\n\nModels\nHyperparameters\nMetrics\n\nMLflow provides a convenient way to track experiments, making it easier to compare different models and their performance over time.\nModel Selection\nAs an example, the final node in the pipeline iterates through all the models trained so far and identifies the model with the best performance. This helps streamline the model selection process.\n\n\n\n\n\n\nExperiment Tracking: Easily compare models based on metrics, configurations, and outputs.\n\nReproducibility: Logs ensure that model training processes can be replicated accurately.\n\nDeployment Ready: Models logged with MLflow can be directly deployed using MLflow’s deployment tools.\n\nFor more details on how to use MLflow, refer to the MLflow Documentation.\n\n\n\n\nTo get started, modify the placeholder functions in the model_training pipeline to include your model-specific training logic. Leverage MLflow to monitor your experiments and ensure you select the best-performing model for deployment or further analysis.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Training"
+    ]
+  },
+  {
+    "objectID": "docs/model_training.html#key-features",
+    "href": "docs/model_training.html#key-features",
+    "title": "Model Training",
+    "section": "",
+    "text": "Training and Evaluation\nThe pipeline includes templates for implementing model training and evaluation logic. You can modify these functions to fit your specific requirements.\nModel Tracking with MLflow\nWe use MLflow to log:\n\nModels\nHyperparameters\nMetrics\n\nMLflow provides a convenient way to track experiments, making it easier to compare different models and their performance over time.\nModel Selection\nAs an example, the final node in the pipeline iterates through all the models trained so far and identifies the model with the best performance. This helps streamline the model selection process.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Training"
+    ]
+  },
+  {
+    "objectID": "docs/model_training.html#benefits-of-mlflow",
+    "href": "docs/model_training.html#benefits-of-mlflow",
+    "title": "Model Training",
+    "section": "",
+    "text": "Experiment Tracking: Easily compare models based on metrics, configurations, and outputs.\n\nReproducibility: Logs ensure that model training processes can be replicated accurately.\n\nDeployment Ready: Models logged with MLflow can be directly deployed using MLflow’s deployment tools.\n\nFor more details on how to use MLflow, refer to the MLflow Documentation.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Training"
+    ]
+  },
+  {
+    "objectID": "docs/model_training.html#next-steps",
+    "href": "docs/model_training.html#next-steps",
+    "title": "Model Training",
+    "section": "",
+    "text": "To get started, modify the placeholder functions in the model_training pipeline to include your model-specific training logic. Leverage MLflow to monitor your experiments and ensure you select the best-performing model for deployment or further analysis.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Training"
+    ]
+  },
+  {
+    "objectID": "docs/inf_pred_postprocessing.html",
+    "href": "docs/inf_pred_postprocessing.html",
+    "title": "Postprocessing on Predictions",
+    "section": "",
+    "text": "The inf_pred_postprocessing pipeline represents the final stage of inference, where model predictions undergo postprocessing. This pipeline includes nodes for:\n1. Conformal Predictions\n2. Explainability using Integrated Gradients\n3. Logging Predictions\n\n\n\nTo improve the reliability of model predictions, we use Conformal Predictions. This approach ensures that the model provides a set of predictions, with a guarantee that the ground truth will fall within this set with a specified level of certainty.\n\nMethod: We use the RAPS (Regularized Adaptive Prediction Sets) method from the torchcp package.\n\nReferences:\n\nTorchCP Documentation\n\nRAPS Research Paper\n\n\nConformal predictions help enhance trust in model outputs, especially in high-stakes applications.\n\n\n\n\nFor explainability, we use Integrated Gradients, a technique that helps visualize the contribution of each input feature (e.g., pixels) to the model’s prediction.\n\nTool: The Captum library is used for this purpose.\n\nUsage: Integrated Gradients provide insights into the importance of each pixel in the input image, enabling better interpretability of the model’s decision-making process.\n\n\n\n\n\nWe use Python’s logging module as a placeholder for recording predictions and other relevant information. However, you can extend this functionality to log additional metrics, such as:\n\nPrediction confidence scores\n\nPrediction sets from conformal methods\n\nGradients or feature importances\n\nLogging can also integrate with external monitoring tools to facilitate real-time tracking of inference results.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Postprocessing on Predictions"
+    ]
+  },
+  {
+    "objectID": "docs/inf_pred_postprocessing.html#conformal-predictions",
+    "href": "docs/inf_pred_postprocessing.html#conformal-predictions",
+    "title": "Postprocessing on Predictions",
+    "section": "",
+    "text": "To improve the reliability of model predictions, we use Conformal Predictions. This approach ensures that the model provides a set of predictions, with a guarantee that the ground truth will fall within this set with a specified level of certainty.\n\nMethod: We use the RAPS (Regularized Adaptive Prediction Sets) method from the torchcp package.\n\nReferences:\n\nTorchCP Documentation\n\nRAPS Research Paper\n\n\nConformal predictions help enhance trust in model outputs, especially in high-stakes applications.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Postprocessing on Predictions"
+    ]
+  },
+  {
+    "objectID": "docs/inf_pred_postprocessing.html#integrated-gradients",
+    "href": "docs/inf_pred_postprocessing.html#integrated-gradients",
+    "title": "Postprocessing on Predictions",
+    "section": "",
+    "text": "For explainability, we use Integrated Gradients, a technique that helps visualize the contribution of each input feature (e.g., pixels) to the model’s prediction.\n\nTool: The Captum library is used for this purpose.\n\nUsage: Integrated Gradients provide insights into the importance of each pixel in the input image, enabling better interpretability of the model’s decision-making process.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Postprocessing on Predictions"
+    ]
+  },
+  {
+    "objectID": "docs/inf_pred_postprocessing.html#logging-predictions",
+    "href": "docs/inf_pred_postprocessing.html#logging-predictions",
+    "title": "Postprocessing on Predictions",
+    "section": "",
+    "text": "We use Python’s logging module as a placeholder for recording predictions and other relevant information. However, you can extend this functionality to log additional metrics, such as:\n\nPrediction confidence scores\n\nPrediction sets from conformal methods\n\nGradients or feature importances\n\nLogging can also integrate with external monitoring tools to facilitate real-time tracking of inference results.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Postprocessing on Predictions"
+    ]
+  },
+  {
+    "objectID": "docs/model_inference.html",
+    "href": "docs/model_inference.html",
+    "title": "Model Inference",
+    "section": "",
+    "text": "The model_inference pipeline is designed to handle the final stage of inference. It currently includes a single placeholder node for predicting outputs, which you can customize to implement your model-specific inference logic.\n\n\n\n\nPlaceholder Node: The pipeline includes a template node for predictions. This ensures a simple starting point for implementing your inference workflow.\nCustomizable: You can add additional nodes or modify the existing one to include preprocessing, postprocessing, or any additional operations required for inference.\n\n\n\n\n\n\nAdd Batch Processing\nIf your inference involves multiple inputs, consider implementing batch processing to optimize performance.\n\n\n\n\n\nTo complete the inference pipeline: 1. Replace the placeholder node with your model-specific prediction logic. 2. Integrate the model_inference pipeline with the inf_data_preprocessing pipeline to create a seamless end-to-end workflow.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Inference"
+    ]
+  },
+  {
+    "objectID": "docs/model_inference.html#key-features",
+    "href": "docs/model_inference.html#key-features",
+    "title": "Model Inference",
+    "section": "",
+    "text": "Placeholder Node: The pipeline includes a template node for predictions. This ensures a simple starting point for implementing your inference workflow.\nCustomizable: You can add additional nodes or modify the existing one to include preprocessing, postprocessing, or any additional operations required for inference.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Inference"
+    ]
+  },
+  {
+    "objectID": "docs/model_inference.html#implementation-tips",
+    "href": "docs/model_inference.html#implementation-tips",
+    "title": "Model Inference",
+    "section": "",
+    "text": "Add Batch Processing\nIf your inference involves multiple inputs, consider implementing batch processing to optimize performance.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Inference"
+    ]
+  },
+  {
+    "objectID": "docs/model_inference.html#next-steps",
+    "href": "docs/model_inference.html#next-steps",
+    "title": "Model Inference",
+    "section": "",
+    "text": "To complete the inference pipeline: 1. Replace the placeholder node with your model-specific prediction logic. 2. Integrate the model_inference pipeline with the inf_data_preprocessing pipeline to create a seamless end-to-end workflow.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Model Inference"
+    ]
+  },
+  {
+    "objectID": "docs/documentation.html",
+    "href": "docs/documentation.html",
+    "title": "Contents",
+    "section": "",
+    "text": "Getting Started\nData Preparation\nModel Training\nInference:\n\nData Preprocessing\nModel Inference\nPostprocessing\n\nDeployment\nDocumentation Generation",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Contents"
+    ]
+  },
+  {
+    "objectID": "docs/inf_data_preprocessing.html",
+    "href": "docs/inf_data_preprocessing.html",
+    "title": "Data Preprocessing for Inferencing",
+    "section": "",
+    "text": "Inference is decomposed into three distinct steps, and this is the first: data preprocessing for inferencing. The inf_data_preprocessing pipeline includes nodes for:\n\nInput Image Preprocessing\n\nOut-of-Distribution (OOD) Detection\n\nYou can extend this pipeline by adding nodes to perform additional operations on input images before they are passed to the model.\n\n\n\nFor Out-of-Distribution (OOD) Detection, we use the pytorch-ood library. A separate pipeline, titled ood_detection, is provided to train and integrate custom OOD detectors.\n\n\n\nPreconfigured Templates\nWe provide templates for the following OOD detectors:\n\nMSP Detector: Maximum Softmax Probability Detector\n\nRMD Detector: Relative Mahalanobis Distance Detector\n\nMulti-Mahalanobis Detector: An enhanced version of the Mahalanobis-based detector.\n\nDataset Example\nThe pipeline is configured to use CIFAR-10 as the “out-of-distribution” dataset by default. However, you can adapt the pipeline to use any dataset of your choice.\n\n\n\n\n\nTrain your custom OOD detector by modifying the templates provided in the ood_detection pipeline.\nFor further customization or advanced features, refer to the PyTorch OOD Documentation.\n\n\n\n\n\n\n\nAdd Preprocessing Steps: Extend the inf_data_preprocessing pipeline to include additional transformations or preprocessing steps suited to your use case.\nExperiment with OOD Detectors: Customize the OOD pipeline to use different datasets or fine-tune the provided detectors to improve performance.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preprocessing for Inferencing"
+    ]
+  },
+  {
+    "objectID": "docs/inf_data_preprocessing.html#ood-detection",
+    "href": "docs/inf_data_preprocessing.html#ood-detection",
+    "title": "Data Preprocessing for Inferencing",
+    "section": "",
+    "text": "For Out-of-Distribution (OOD) Detection, we use the pytorch-ood library. A separate pipeline, titled ood_detection, is provided to train and integrate custom OOD detectors.\n\n\n\nPreconfigured Templates\nWe provide templates for the following OOD detectors:\n\nMSP Detector: Maximum Softmax Probability Detector\n\nRMD Detector: Relative Mahalanobis Distance Detector\n\nMulti-Mahalanobis Detector: An enhanced version of the Mahalanobis-based detector.\n\nDataset Example\nThe pipeline is configured to use CIFAR-10 as the “out-of-distribution” dataset by default. However, you can adapt the pipeline to use any dataset of your choice.\n\n\n\n\n\nTrain your custom OOD detector by modifying the templates provided in the ood_detection pipeline.\nFor further customization or advanced features, refer to the PyTorch OOD Documentation.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preprocessing for Inferencing"
+    ]
+  },
+  {
+    "objectID": "docs/inf_data_preprocessing.html#customization-tips",
+    "href": "docs/inf_data_preprocessing.html#customization-tips",
+    "title": "Data Preprocessing for Inferencing",
+    "section": "",
+    "text": "Add Preprocessing Steps: Extend the inf_data_preprocessing pipeline to include additional transformations or preprocessing steps suited to your use case.\nExperiment with OOD Detectors: Customize the OOD pipeline to use different datasets or fine-tune the provided detectors to improve performance.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Data Preprocessing for Inferencing"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html",
+    "href": "docs/documentation_gen.html",
+    "title": "Automatic Documentation Generation",
+    "section": "",
+    "text": "This pod leverages quartodoc and quarto to generate documentation directly from the codebase. This ensures seamless integration of documentation with the code and keeps it consistently up-to-date.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html#prerequisites",
+    "href": "docs/documentation_gen.html#prerequisites",
+    "title": "Automatic Documentation Generation",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nInstall Quarto\nEnsure you have Quarto installed by following the instructions here.\nConfigure Quartodoc\nQuartodoc extracts docstrings from Python code and generates markdown files for documentation.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html#steps-to-enable-automatic-documentation",
+    "href": "docs/documentation_gen.html#steps-to-enable-automatic-documentation",
+    "title": "Automatic Documentation Generation",
+    "section": "Steps to Enable Automatic Documentation",
+    "text": "Steps to Enable Automatic Documentation\n\nExpose Functions or Classes for Quartodoc\n\nAdd functions or classes with docstrings to the __all__ list in the package’s __init__.py file.\n\nFor example, in the __init__.py file:\n__all__ = [\"function_name\", \"ClassName\"]\n\nInclude in Reference Documentation\n\nUpdate the _quarto.yml file at the project root to include the new items in the quartodoc configuration.\n\nUnder the sections key, specify the items you want in the reference documentation.\n\nPre-commit Hook for Auto-generation\n\nThe .pre_commit_config.yaml file includes a hook that auto-generates documentation files before each commit. This ensures your documentation reflects the latest codebase.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html#manually-generating-documentation",
+    "href": "docs/documentation_gen.html#manually-generating-documentation",
+    "title": "Automatic Documentation Generation",
+    "section": "Manually Generating Documentation",
+    "text": "Manually Generating Documentation\nTo manually generate the documentation, run:\nquartodoc build\nThe generated markdown files will be located in the reference folder at the project root.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html#viewing-documentation",
+    "href": "docs/documentation_gen.html#viewing-documentation",
+    "title": "Automatic Documentation Generation",
+    "section": "Viewing Documentation",
+    "text": "Viewing Documentation\n\nView as Markdown\nNavigate to the reference folder and open the generated markdown files.\nView as a Website\nLaunch a local preview server by running:\nquarto preview\nThis opens the documentation in a browser as a website.",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  },
+  {
+    "objectID": "docs/documentation_gen.html#additional-resources",
+    "href": "docs/documentation_gen.html#additional-resources",
+    "title": "Automatic Documentation Generation",
+    "section": "Additional Resources",
+    "text": "Additional Resources\nFor detailed guides on Quartodoc and Quarto, visit:\n\nQuartodoc Documentation\nQuarto Documentation",
+    "crumbs": [
+      "Home",
+      "Image ML Pod",
+      "Automatic Documentation Generation"
+    ]
+  }
+]
